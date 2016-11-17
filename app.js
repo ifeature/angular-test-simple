@@ -57,15 +57,24 @@
     }
 })
 
-.factory("counterService", function () {
+.factory("counterService", function() {
     //сервис содержит переменную и 2 функции : для инкремента и получения значения
     var counter = 0;
     return {
-        incrementCounter: function () {
+        incrementCounter: function() {
             counter++;
         },
-        getCounter: function () {
+        getCounter: function() {
             return counter;
         }
+    };
+})
+.factory("myService", function() {
+  return {
+    asyncFunc: function(cb) {
+      setTimeout(function() {
+        cb('Hello');
+      }, 10000);
     }
+  };
 });
