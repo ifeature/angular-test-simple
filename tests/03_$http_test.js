@@ -11,14 +11,14 @@
     beforeEach(angular.mock.inject(function ($httpBackend) {
         backend = $httpBackend;
         //сервис $httpBackend используется для реализации низкоуровнего API по работе с AJAX запросами, с помощью этого сервиса можно
-        //симулировать ответы от сервера(этот сервис содержится в ngMock) 
+        //симулировать ответы от сервера(этот сервис содержится в ngMock)
         backend.expect("GET", "productData.json").respond(
         [{ "name": "Apples", "category": "Fruit", "price": 1.20 },
         { "name": "Bananas", "category": "Fruit", "price": 2.42 },
         { "name": "Pears", "category": "Fruit", "price": 2.02 }]);
     }));
     //методы которые определяются сервисом $httpBackend :
-    //expect(method, url, data, headers) определяет ожидаемый запрос (параметры опциональны)    
+    //expect(method, url, data, headers) определяет ожидаемый запрос (параметры опциональны)
     //flush() / flush(count) отправляет результат или указанное колличество ответов, пока этот метод не будет вызван response отправлен не будет
     //verifyNoOutstandingExpectation() проверяет что все ожидаемые запросы были получены
     //respond(data) / response(status, data, headers) определяет ответ на ожидаемый запрос

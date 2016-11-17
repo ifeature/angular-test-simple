@@ -5,7 +5,7 @@
 
     beforeEach(angular.mock.module("exampleApp"));
 
-    beforeEach(angular.mock.inject(function ($rootScope, $compile) {
+    beforeEach(angular.mock.inject(function($rootScope, $compile) {
         // с помощью метода inject получены сервисы $rootScope и $compile
         mockScope = $rootScope.$new();
         //создается новый scope
@@ -20,7 +20,7 @@
     it("Generates list elements", function () {
 
         var compileFn = compileService("<div unordered-list='data'></div>");
-        //выполняем компиляцию разметки 
+        //выполняем компиляцию разметки
         var elem = compileFn(mockScope);
         //передаем в скомпилированное выражение scope который содержит массив объектов data,
         //далее data будет использоватся в директиве

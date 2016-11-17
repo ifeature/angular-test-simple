@@ -9,7 +9,7 @@
     };
 
     //выполняет AJAX запрос по указанному адресу
-    $http.get("productData.json").success(function (data) {
+    $http.get("productData.json").success(function(data) {
         $scope.products = data;
     });
 
@@ -17,18 +17,18 @@
     $scope.timerCounter = 0;
 
     //иммитация callback функции
-    $interval(function () {
+    $interval(function() {
         $scope.intervalCounter++;
     }, 5000, 10);
 
     //иммитация callback функции
-    $timeout(function () {
+    $timeout(function() {
         $scope.timerCounter++;
     }, 5000);
 })
-.filter("labelCase", function () {
+.filter("labelCase", function() {
     //данный фильтр используется для изменения регистра переданной ему строки
-    return function (value, reverse) {
+    return function(value, reverse) {
         if (angular.isString(value)) {
             var intermediate = reverse ? value.toUpperCase() : value.toLowerCase();
             return (reverse ? intermediate[0].toLowerCase() :
@@ -37,6 +37,11 @@
             return value;
         }
     };
+})
+.filter("reverseString", function() {
+  return function(value) {
+    return value.split('').reverse().join('');
+  }
 })
 .directive("unorderedList", function () {
    //директива на основе элементов из массива генерирует <ul>
@@ -51,6 +56,7 @@
         }
     }
 })
+
 .factory("counterService", function () {
     //сервис содержит переменную и 2 функции : для инкремента и получения значения
     var counter = 0;
